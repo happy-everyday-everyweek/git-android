@@ -55,7 +55,7 @@ if [ ! -f "$PREFIX/lib/libssl.a" ]; then
   ( cd "openssl-$OPENSSL_VER"
     export ANDROID_NDK_ROOT="$NDK"
     export ANDROID_NDK="$NDK"
-    ./Configure android-arm64 no-shared no-tests no-apps no-legacy no-engine no-dso \
+    ./Configure android-arm64 no-shared no-tests no-legacy \
       -D__ANDROID_API__="$API" --prefix="$PREFIX" --openssldir="$PREFIX/ssl" >conf.log 2>&1 \
       || { cat conf.log; exit 1; }
     make -j"$JOBS" build_sw >/dev/null
